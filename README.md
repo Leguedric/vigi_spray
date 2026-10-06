@@ -1,119 +1,236 @@
-<h1><strong>Vigi Spray - Ultimate Urban Art System</strong></h1>
-<p><strong><span style="color:rgb(147,101,184);font-size:16px;">The most advanced, high-performance graffiti system available for FiveM. Freehand paint, stencils, masking tape, mirror mode, live sync, and a full admin panel.</span></strong></p>
-<p><strong><span style="color:rgb(250,197,28);">NEW in v1.9.0 :</span></strong> full <strong>ox_core</strong> support, alongside ESX, QBCore and Qbox. Auto-detected, with no extra dependency and nothing to add to your fxmanifest.</p>
-<h1><span style="color:rgb(250,197,28);"><a href="https://www.youtube.com/watch?v=bpM9EK1qdN4" target="_blank" rel="noreferrer noopener"><strong>SHOWCASE VIDEO</strong></a></span> | <span style="color:rgb(147,101,184);"><a href="https://vigilabs.gitbook.io/vigilabs-docs" target="_blank" rel="noreferrer noopener"><strong>DOCUMENTATION</strong></a></span></h1>
-<hr />
-<h2><strong>CREATIVE TOOLS</strong></h2>
-<h3><strong>Spray Painting</strong></h3>
-<ul>
-  <li><strong>Freehand Drawing</strong>: Paint on any flat surface with full mouse control</li>
-  <li><strong>Live Multiplayer Sync</strong>: Watch other players create art in real-time</li>
-  <li><strong>Color System</strong>: Full spectrum picker with presets, hex input, recent colors, and favorites</li>
-  <li><strong>Pressure Mechanics</strong>: Shake the can to build pressure, sputtering effect when running low</li>
-  <li><strong>Adjustable Cap Size</strong>: Scroll to change stroke width from thin to fat cap</li>
-  <li><strong>Depth Adjustment</strong>: Scroll to offset the graffiti from the wall, fixing Z-fighting on uneven surfaces</li></ul>
-<h3><strong>Precision Tools</strong></h3>
-<ul>
-  <li><strong>Masking Tape</strong>: Create clean straight lines with angle snapping (45-degree increments)</li>
-  <li><strong>Mirror Mode</strong>: Place a symmetry axis and every stroke is reflected in real-time</li>
-  <li><strong>Rule of Thirds Grid</strong>: Toggle an overlay grid for composition and scaling</li>
-  <li><strong>3D Dimensions Display</strong>: See the exact size of your work area while placing it</li></ul>
-<h3><strong>Edit Mode</strong></h3>
-<ul>
-  <li><strong>Re-Edit Your Work</strong>: Aim at your own graffiti and re-enter the canvas to continue drawing</li>
-  <li><strong>Non-Destructive</strong>: Your existing artwork is loaded back onto the canvas</li>
-  <li><strong>Ownership Check</strong>: Only the original creator can edit (admins can lock tags to prevent editing)</li></ul>
-<h3><strong>Stencils &amp; Sketchbook</strong></h3>
-<ul>
-  <li><strong>Stencil Gallery</strong>: Browse and place admin-managed designs with a progressive spray reveal animation</li>
-  <li><strong>URL Import</strong>: (Optional) Players paste an image URL to place it directly, with domain whitelist/blacklist and cooldowns</li>
-  <li><strong>Player Access Control</strong>: Restrict specific stencils to specific players</li>
-  <li><strong>Local Sketchbook</strong>: Players save drawings locally and reuse them across sessions</li></ul>
-<h3><strong>Cleaning</strong></h3>
-<ul>
-  <li><strong>Sponge System</strong>: Progressive erasure with a physical sponge animation</li>
-  <li><strong>Durability &amp; Wear Widget</strong>: Sponges degrade over time with a real-time visual indicator (cyan &gt; orange &gt; red)</li>
-  <li><strong>Locked Tags</strong>: Admins can lock graffiti to prevent cleaning</li></ul>
-<hr />
-<h2><strong>PERFORMANCE</strong></h2>
-<ul>
-  <li><strong>Atlas Rendering</strong>: All visible tags share a single GPU texture atlas for minimal draw calls</li>
-  <li><strong>Camera-Side Face Culling</strong>: Only the face visible to the player is rendered (2 draw calls instead of 4 per tag)</li>
-  <li><strong>Debounced File I/O</strong>: Rapid operations are batched to reduce disk writes</li>
-  <li><strong>Latent Event Streaming</strong>: Large images synced via chunked events, no network bottleneck</li>
-  <li><strong>WebP Compression</strong>: All artwork stored in WebP for optimal quality-to-size ratio</li>
-  <li><strong>Data Integrity Check</strong>: Automatic cleanup of orphaned files on server start</li>
-  <li><strong>Zero Dependencies</strong>: Completely standalone, no xSound or external libraries</li>
-  <li><strong>3D Spatial Audio</strong>: Distance-based sound built entirely within NUI</li></ul>
-<hr />
-<h2><strong>ADMIN PANEL</strong></h2>
-<h3><strong>Management</strong></h3>
-<ul>
-  <li><strong>Dashboard</strong>: Total graffiti, active artists, daily creation stats</li>
-  <li><strong>Interactive World Map</strong>: Leaflet.js map with clustering, switchable Atlas/Satellite/Roads views</li>
-  <li><strong>Search &amp; Filter</strong>: Find tags by artist, date, ID, or distance from your position</li>
-  <li><strong>Bulk Delete</strong>: Select multiple tags and delete them in a single batch</li>
-  <li><strong>Click-to-Delete</strong>: Aim and click to remove tags directly in the game world</li>
-  <li><strong>Admin Depth Adjustment</strong>: Select any tag and scroll to fine-tune its wall offset</li>
-  <li><strong>Tag Locking</strong>: Lock tags to prevent player editing and cleaning</li>
-  <li><strong>Stencil Library</strong>: Add, rename, import, delete stencils, and manage per-player access</li>
-  <li><strong>Discord Webhooks</strong>: Every creation logged with artist info, coordinates, and image preview</li></ul>
-<h3><strong>Permissions &amp; Security</strong></h3>
-<ul>
-  <li><strong>ACE Permissions</strong>: Restrict spraying to specific FiveM groups</li>
-  <li><strong>Job &amp; Boss Grade</strong>: Allow only specific jobs or boss ranks (ESX grades, QB isboss, ox_core groups and permissions)</li>
-  <li><strong>Discord Role Check</strong>: Restrict to specific Discord roles</li>
-  <li><strong>External Export</strong>: Hook into any custom permission resource</li>
-  <li><strong>Restricted Zones</strong>: Define polygon areas where graffiti is forbidden</li>
-  <li><strong>Blacklist System</strong>: Ban/unban players via Discord ID, License, or Server ID</li></ul>
-<hr />
-<h2><strong>COMPATIBILITY</strong></h2>
-<h3><strong>Frameworks</strong></h3>
-<ul>
-  <li><strong>ESX</strong>: Legacy &amp; Extended, all versions</li>
-  <li><strong>QBCore</strong>: Full support</li>
-  <li><strong>Qbox</strong>: Compatible</li>
-  <li><strong>ox_core</strong>: Full support, no extra dependency and nothing to add to your fxmanifest</li>
-  <li><strong>Auto-Detection</strong>: Framework and inventory detected automatically</li>
-  <li><strong>Custom Framework</strong>: Open bridge files for any implementation</li></ul>
-<h3><strong>Inventory Systems</strong></h3>
-<ul>
-  <li><strong>ox_inventory</strong> | <strong>qs-inventory</strong> | <strong>qb-inventory</strong> | <strong>codem-inventory</strong> | <strong>chezza-inventory</strong> | <strong>ESX default</strong></li>
-  <li><strong>Command Mode</strong>: Works without any inventory (<code>/spray</code>, <code>/sponge</code>)</li>
-  <li><strong>ox_core</strong>: has no inventory of its own, pair it with ox_inventory or use Command Mode</li></ul>
-<h3><strong>Integrations</strong></h3>
-<ul>
-  <li><strong>OP Gangs (op-crime)</strong>: Native territory integration, loyalty rewards, rival penalties</li>
-  <li><strong>Custom Scripts</strong>: Server events and exports for police alerts, gang systems, economy, etc.</li></ul>
-<h3><strong>Languages</strong></h3>
-<ul>
-  <li><strong>9 Languages</strong>: English, French, Spanish, German, Italian, Portuguese (PT &amp; BR), Russian, Arabic</li></ul>
-<hr />
-<h2><strong>API</strong></h2>
-<p>Fifteen exports and two events, for wiring graffiti into police dispatch, a gang system, an economy script or your own tooling.</p>
-<div style="background:#0f1720;padding:16px;border-radius:4px;overflow-x:auto;max-width:100%;"><pre style="margin:0;font-family:Consolas,Monaco,monospace;font-size:13px;line-height:1.65;color:#e6edf3;white-space:pre-wrap;word-break:break-word;"><code><span style="color:#6a9955;">-- Server</span>
-exports[<span style="color:#ce9178;">'vigi_spray'</span>]:<span style="color:#4fc1ff;">GetTagCount</span>()
-exports[<span style="color:#ce9178;">'vigi_spray'</span>]:<span style="color:#4fc1ff;">GetTagInfo</span>(tagId)
-exports[<span style="color:#ce9178;">'vigi_spray'</span>]:<span style="color:#4fc1ff;">GetNearbyTags</span>(coords, radius)
-exports[<span style="color:#ce9178;">'vigi_spray'</span>]:<span style="color:#4fc1ff;">IsStencilTag</span>(tagId)
-exports[<span style="color:#ce9178;">'vigi_spray'</span>]:<span style="color:#4fc1ff;">GetAllStencils</span>()
-exports[<span style="color:#ce9178;">'vigi_spray'</span>]:<span style="color:#4fc1ff;">DeleteTag</span>(tagId)
-exports[<span style="color:#ce9178;">'vigi_spray'</span>]:<span style="color:#4fc1ff;">DeleteClosestTag</span>(coords, radius)
+## Transform your streets into a living canvas
 
-<span style="color:#6a9955;">-- Client</span>
-exports[<span style="color:#ce9178;">'vigi_spray'</span>]:<span style="color:#4fc1ff;">IsSprayMode</span>()
-exports[<span style="color:#ce9178;">'vigi_spray'</span>]:<span style="color:#4fc1ff;">GetNearbyTags</span>(radius)
-exports[<span style="color:#ce9178;">'vigi_spray'</span>]:<span style="color:#4fc1ff;">OpenStencilGallery</span>()
-exports[<span style="color:#ce9178;">'vigi_spray'</span>]:<span style="color:#4fc1ff;">OpenAdminPanel</span>()
-exports[<span style="color:#ce9178;">'vigi_spray'</span>]:<span style="color:#4fc1ff;">SetGraffitiHidden</span>(hidden)
-exports[<span style="color:#ce9178;">'vigi_spray'</span>]:<span style="color:#4fc1ff;">IsGraffitiHidden</span>()
-exports[<span style="color:#ce9178;">'vigi_spray'</span>]:<span style="color:#4fc1ff;">StartCustomCleaning</span>(options)
-exports[<span style="color:#ce9178;">'vigi_spray'</span>]:<span style="color:#4fc1ff;">StopCleaning</span>()
+**Vigi Spray** is the **most advanced, high-performance graffiti system** available for FiveM. Players can freehand paint on any wall, mask areas with professional tape, use stencils from a gallery or URL, mirror their strokes, and express their creativity in real-time -- all synced live to every player nearby.
 
-<span style="color:#6a9955;">-- Events</span>
-<span style="color:#4fc1ff;">vigi_spray:server:onTagCreated</span>
-<span style="color:#4fc1ff;">vigi_spray:server:onTagCleaned</span></code></pre></div>
-<p>Both events carry the source, the tag id, the tag data and the OP Gangs territory when there is one.</p>
-<p>Full signatures and payloads are in the <a href="https://vigilabs.gitbook.io/vigilabs-docs" target="_blank" rel="noreferrer noopener">documentation</a>. Everything else lives in one <code>config.lua</code>, outside the escrow along with both bridge files, the server config, the locales and the gang integration.</p>
-<hr />
-<p><span style="color:rgb(85,57,130);"><strong><a href="https://vigilabs.gitbook.io/vigilabs-docs" target="_blank" rel="noreferrer noopener">Full Documentation</a></strong></span> | <span style="color:rgb(85,57,130);"><strong><a href="https://discord.gg/BntQVk5TqV" target="_blank" rel="noreferrer noopener">Discord Support</a></strong></span></p>
+Packed with a fully integrated admin dashboard, layered permission systems, real-time syncing, and extreme performance. This is the ultimate tool for gangs, street artists, and law enforcement roleplay.
+
+> **New in v1.9.0** -- Vigi Spray now runs on **ox_core**, alongside ESX, QBCore and Qbox. Auto-detected, with no extra dependency and nothing to add to your `fxmanifest.lua`.
+
+![VigiSpray|600x337, 100%](upload://swww6swjIYjqGdxtnHGTDd5JIVa.gif)
+
+---
+
+## Showcase
+
+**Core Features Trailer:**
+
+https://www.youtube.com/watch?v=wDyEfsdmUMw
+
+**Stencil System Update:**
+
+https://www.youtube.com/watch?v=DZG23vJ4SFc
+
+**Professional Masking Tape Update:**
+
+https://www.youtube.com/watch?v=VrI-_7iDG84
+
+[grid]
+![Work area with dimensions|690x388](upload://9kruDmDavVAm2YcgoGjN6JIWN0p.jpeg)
+![Hand-painted graffiti using masking tape after|690x388](upload://7IRZHJBODKrKKB6O5c5ZFWpnh1F.jpeg)
+![Hand-painted graffiti using masking tape|690x388](upload://jyL58Qn31Nu9hPSFYVaYT8PRlmD.jpeg)
+![Selecting a predefined stencil|690x388](upload://1C1ee51v2M2fQsFpWI6Ylp8r1Lg.jpeg)
+[/grid]
+
+---
+
+## Features
+
+### Freehand Spray Painting
+
+- Paint on **any flat surface** in the world with full mouse control.
+- **LIVE Syncing** -- watch other players spray and draw in real-time.
+- **Color Picker** with presets, recent colors, and favorites (right-click to save).
+- **Pressure System** -- shake the can to build pressure, watch it sputter when running low.
+- **Adjustable Cap Size** -- scroll to change stroke width from thin to fat cap.
+
+### Professional Masking Tape
+
+- Outline clean straight lines and perfect geometric shapes.
+- **Angle Snapping** (hold SHIFT) for precise 45-degree alignments.
+- **Dynamic 3D Dimensions** displayed while placing your work area.
+- **Rule of Thirds Grid** overlay to help players scale and compose their art.
+
+### Mirror Mode
+
+- Place a **symmetry axis** anywhere on the canvas.
+- Every stroke is automatically reflected across the axis in real-time.
+- Angle snapping supported for axis placement.
+- Create perfectly symmetrical designs with half the effort.
+
+### Depth Adjustment
+
+- Scroll to move the graffiti closer or further from the wall surface.
+- Fixes Z-fighting on uneven or curved surfaces.
+- Available to both players (own tags) and admins (any tag).
+
+### Edit Mode
+
+- Players can **re-edit their own graffiti** at any time.
+- The canvas reopens with the existing artwork loaded.
+- Continue drawing, add details, fix mistakes, or erase sections.
+- Admins can **lock** tags to prevent editing and cleaning.
+
+### Stencil Gallery & URL Import
+
+- **In-Game Stencil Gallery** -- browse and select pre-defined high-res designs.
+- **Dynamic Reveal Animation** -- watch the stencil appear progressively as you spray.
+- **Player Access Control** -- restrict specific stencils to specific players.
+- **Player URL Import** (optional) -- paste a URL (Imgur, Discord CDN, etc.) to paint any image, with configurable domain whitelist/blacklist and cooldowns.
+
+### Local Sketchbook
+
+- Players can **save drawings locally** and reuse them across sessions.
+- Personal library stored client-side -- no server storage needed.
+- Load a saved sketch onto any new canvas instantly.
+
+### Immersive Cleaning
+
+- **Sponge Cleaning** -- scrub away graffiti progressively with a physical sponge animation.
+- **Durability System** -- sponges degrade over time with a real-time wear indicator (cyan > orange > red).
+- When the sponge breaks, it is removed from the player's inventory.
+
+---
+
+## Admin Panel
+
+The most complete graffiti admin panel available for FiveM.
+
+- **Interactive World Map** -- Leaflet.js map with clustering. Switch between Atlas, Satellite, and Roads views.
+- **Dashboard** -- total graffiti count, active artists, daily stats.
+- **Search, Filter & Sort** -- find tags by artist name, ID, date, or distance from your position.
+- **Bulk Delete** -- select multiple tags and delete them in a single optimized batch.
+- **Click-to-Delete Tool** -- enter a special mode to aim and click to remove tags directly in-game.
+- **Admin Depth Adjustment** -- aim at any tag and scroll to fine-tune its wall offset.
+- **Tag Locking** -- lock any tag to prevent players from editing or cleaning it.
+- **Stencil Library Management** -- add, rename, import, delete, and control player access for stencils.
+- **Blacklist System** -- ban/unban players from using spray cans via Discord ID, License, or Server ID. Fully in-game UI.
+- **Discord Webhook Logs** -- every tag creation is logged with artist info, coordinates, and an image preview.
+
+[grid]
+![Dashboard with all the server graffiti|690x376](upload://3EWUvN9tbFfOsG03qWy8UgOk50P.jpeg)
+![Selection of a graffiti|690x380](upload://fUXpqj60lphUhNoVRWHDalkzLfL.jpeg)
+![Stencils|690x388](upload://fF69YzsE0MX4PD4E22vH87c3Cir.jpeg)
+![Map with all Graffiti|690x377](upload://5pemvPkKItlGig4oldlaDPJrRj8.jpeg)
+![Teleport on a graffiti ou delete|690x384](upload://jZS9gh7uPIaGlgCZtISgrRSPgIU.jpeg)
+![Ban a player from using graffiti|690x378](upload://ihel0EKlMQueRJTu7LmOOOIiADD.jpeg)
+[/grid]
+
+---
+
+## Performance
+
+Vigi Spray is built for servers with hundreds of tags and dozens of concurrent players.
+
+- **Atlas Rendering Engine** -- all visible tags are rendered via a single optimized GPU texture atlas. Hundreds of graffiti, minimal FPS impact.
+- **Camera-Side Face Culling** -- only the face visible to the player is rendered (2 draw calls instead of 4). Backface only renders within 15m.
+- **Debounced File I/O** -- rapid operations (edits, depth changes, stencil placements) are batched to reduce disk writes.
+- **Latent Event Streaming** -- large images and stencils are synced via chunked latent events. No network bottleneck.
+- **WebP Compression** -- all artwork is stored in WebP format for optimal quality-to-size ratio.
+- **Data Integrity Check** -- automatic cleanup of orphaned files and entries on server start.
+- **Zero External Dependencies** -- no xSound or external libraries. Spatial audio is built entirely within NUI.
+
+---
+
+## Framework Support
+
+One script, four frameworks. **ESX**, **QBCore**, **Qbox** and **ox_core** are all auto-detected, so you drop the resource in and it works.
+
+- **No extra dependency for ox_core** -- nothing to add to your `fxmanifest.lua`. The bridge talks to ox_core directly through its own exports.
+- **ox_core groups are handled the way ox_core actually works** -- it has groups rather than jobs, and a character can hold several at once, so job whitelists match on group membership. It does not have to be your active group.
+- **Both bridge files stay open** (`client/bridge.lua`, `server/bridge.lua`). Running a custom or heavily modified framework? Adapt them without ever touching the core code.
+
+> ox_core has no inventory of its own. Pair it with **ox_inventory** (declare `spraycan` and `sponge` plainly, no `export` line needed), or use the command-only mode.
+
+---
+
+## Permissions & Restrictions
+
+A layered, server-side permission system:
+
+- **ACE Permissions** -- restrict spraying to specific FiveM groups.
+- **Job & Boss Grade** -- allow only specific jobs or boss ranks (ESX grade names, QB `isboss`, ox_core group grades and permissions).
+- **Discord Role Check** -- restrict to specific Discord roles (requires a Discord bridge).
+- **External Export** -- hook into any custom resource with a simple `true/false` export.
+- **Restricted Zones** -- define polygon areas where graffiti is forbidden (e.g., police station, hospital).
+- **Player Blacklist** -- permanently block players via the admin panel.
+
+All checks stack. Combine ACE + Job + Discord + Zones for full control.
+
+---
+
+## Integrations
+
+- **OP Gangs (op-crime)** -- native integration. Painting triggers `onGraffitiPaint`, cleaning triggers `onGraffitiRemove`. Turf detection, loyalty rewards, and rival penalties handled automatically by op-crime.
+- **Any Custom System** -- use server events and exports to integrate with police alerts, gang territory scripts, economy systems, and more.
+
+---
+
+## API for Developers
+
+Vigi Spray exposes a full API for building on top of the graffiti system.
+
+**Server Events (triggered automatically):**
+
+```lua
+AddEventHandler('vigi_spray:server:onTagCreated', function(source, tagId, tagData, turfIndex)
+    -- React when a tag is placed (tagData contains coords, artist, stencilId, gangId...)
+end)
+
+AddEventHandler('vigi_spray:server:onTagCleaned', function(source, tagId, tagData, turfIndex)
+    -- React when a tag is fully scrubbed away
+end)
+```
+
+**Server Exports:**
+
+```lua
+exports['vigi_spray']:DeleteTag(tagId)              -- Delete a tag by UUID
+exports['vigi_spray']:DeleteClosestTag(coords, r)   -- Delete nearest tag within radius
+exports['vigi_spray']:GetNearbyTags(coords, radius)  -- Get all tags in range
+exports['vigi_spray']:GetTagInfo(tagId)              -- Full tag metadata
+exports['vigi_spray']:IsStencilTag(tagId)            -- Check if tag uses a stencil
+exports['vigi_spray']:GetAllStencils()               -- List all stencils
+```
+
+**Client Exports:**
+
+```lua
+exports['vigi_spray']:IsSprayMode()                  -- Is the player currently spraying?
+exports['vigi_spray']:GetNearbyTags(radius)           -- Nearby tags around the player
+exports['vigi_spray']:SetGraffitiHidden(bool)         -- Hide/show all graffiti rendering
+exports['vigi_spray']:IsGraffitiHidden()              -- Check if graffiti is hidden
+exports['vigi_spray']:OpenAdminPanel()                -- Open admin panel from your own menu
+exports['vigi_spray']:OpenStencilGallery()            -- Open stencil gallery from your own menu
+```
+
+---
+
+## Configuration
+
+Everything is configurable via a single `config.lua`:
+
+- **Framework & Inventory** -- auto-detects ESX, QBCore, Qbox, or ox_core. Supports OX, QS, QB, Codem, Chezza inventories, or command-only mode.
+- Item names, prop models, and bone attachments.
+- Spray distance, brush sizes, pressure decay, and cooldowns.
+- Cleaning speed, eraser size, and sponge durability.
+- Rendering distance, atlas slots, slot resolution, and WebP quality.
+- Discord Webhooks with image embeds.
+- Tag auto-expiration (delete tags older than X days).
+- Restricted zones, permissions, and key bindings.
+
+**9 Languages included**: English, French, Spanish, German, Italian, Portuguese (BR & PT), Russian, and Arabic.
+
+---
+
+## Purchase
+
+### **[Buy on Tebex](https://vigilabs.tebex.io/package/vigi-spray)**
+
+### **[Documentation](https://vigilabs.gitbook.io/vigilabs-docs)** | **[Discord Support](https://discord.gg/BntQVk5TqV)**
+
+| | |
+|--- | ---|
+| Code is accessible | Partially (config, bridges, locales, gangs are open) |
+| Subscription-based | No |
+| Requirements | ESX, QBCore, Qbox, or ox_core |
+| Support | Yes |
